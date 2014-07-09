@@ -200,5 +200,4 @@ ig.module(
 
 	// Start the Game with 60fps, a resolution of 800x600, not scaled
 	ig.main( '#canvas', MyGame, 60, document.documentElement["clientWidth"] - 200, document.documentElement["clientHeight"], 1 );
-
 });

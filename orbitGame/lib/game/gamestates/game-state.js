@@ -61,6 +61,8 @@ ig.module (
 		local_planet: null,
 		universe_size: 50,
 		game_over: false,
+		timer: 0,
+		timer_limit: 2,
 
 		init: function(x, y, settings) {
 			this.parent(x, y, settings);
@@ -93,6 +95,11 @@ ig.module (
 		update: function() {
 			this.parent();
 
+			this.timer += ig.system.tick;
+			if (this.timer >= this.timer_limit) {
+				this.timer %= this.timer_limit;
+			}
+
 			this.handleZoom();
 
 			//Focus 'camera' to show planet in center of screen
@@ -101,6 +108,7 @@ ig.module (
 
 			this.applyGravityBetweenPlanets();
 			this.handleAsteroids();
+			this.updateLocalPlayer();
 
 			ig.game.networker.sendPlanet({
 				pos:this.planets[this.local_planet].pos,
@@ -129,10 +137,20 @@ ig.module (
 		},
 		updateLocalPlayer: function() {
 			var planet = this.planets[this.local_planet];
-			this.keepPlanetInBounds(planet);
-			var convertedPos = this.convertPosToView(this.pos, false);
+			var convertedPos = ig.game.state_mgr.current.convertPosToView(planet.pos, false);
 			var vectorToMouse = Vector.VectorBetween(convertedPos, ig.input.mouse);
 			planet.vel = Vector.Multiply(vectorToMouse, 5);
+
+			var universe_size = ig.game.state_mgr.current.universe_size;
+			if (planet.pos.x > universe_size / 2) {
+				planet.pos.x -= universe_size;
+			} else if (planet.pos.x < -(universe_size / 2)) {
+				planet.pos.x += universe_size;
+			} else if (planet.pos.y > universe_size / 2) {
+				planet.pos.y -= universe_size;
+			} else if (planet.pos.y < -(universe_size / 2)) {
+				planet.pos.y += universe_size;
+			}
 		},
 		applyGravityBetweenPlanets: function() {
 			for (var planet_id in this.planets) {
@@ -355,4 +373,3 @@ ig.module (
 		}
 	});
 });
-
