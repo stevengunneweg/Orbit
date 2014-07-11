@@ -5,7 +5,11 @@ module.exports = function(grunt) {
     jasmine: {
             components: {
               src: [
-              'orbitGame/*.js'
+		'test/spec/SpecHelper.js',
+		'orbitGame/*.js',
+		'orbitGame/lib/game/*.js',
+		'orbitGame/lib/game/entities/*.js',
+		'orbitGame/lib/game/gamestates/*.js'
               ],
               options: {
                 specs: 'test/spec/*Spec.js',

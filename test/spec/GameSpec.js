@@ -23,20 +23,20 @@ describe("Network", function() {
 			expect(Object.keys(this.netw.binds).length).toBe(0);
 		});
 
-		it("should be able to create RTCPeerConnection object", function(done) {
-			this.netw.srtc.createConnection(0, SRTCManager.Types.DATA, function() {
-				done();
-			});
-		});
+		// it("should be able to create RTCPeerConnection object", function(done) {
+		// 	this.netw.srtc.createConnection(0, SRTCManager.Types.DATA, function() {
+		// 		done();
+		// 	});
+		// });
 
-		it("should be able to create RTCPeerConnection offer", function(done) {
-			this.netw.srtc.createConnection(0, SRTCManager.Types.DATA, function() {
-				this.netw.srtc.createOffer(0, function(offer) {
-					expect(offer['sdp']).not.toBeNull();
-					done();
-				}.bind(this));
-			}.bind(this));
-		});
+		// it("should be able to create RTCPeerConnection offer", function(done) {
+		// 	this.netw.srtc.createConnection(0, SRTCManager.Types.DATA, function() {
+		// 		this.netw.srtc.createOffer(0, function(offer) {
+		// 			expect(offer['sdp']).not.toBeNull();
+		// 			done();
+		// 		}.bind(this));
+		// 	}.bind(this));
+		// });
 	});
 
 	describe("SocketManager", function() {
@@ -87,21 +87,21 @@ describe("Network", function() {
 			expect(rtc).not.toBe(undefined);
 		});
 
-		it("should create connection object", function(done) {
-			rtc.createConnection(0, SRTCManager.Types.DATA, function() {
-				done();
-			});
-		});
+		// it("should create connection object", function(done) {
+		// 	rtc.createConnection(0, SRTCManager.Types.DATA, function() {
+		// 		done();
+		// 	});
+		// });
 
-		it("shoud create offer", function(done) {
-			rtc.createConnection(0, SRTCManager.Types.DATA, function() {
-				rtc.createOffer(0, function(offer) {
-					expect(offer).not.toBe(null);
-					expect(offer).not.toBe(undefined);
-					done();
-				});
-			});
-		});
+		// it("shoud create offer", function(done) {
+		// 	rtc.createConnection(0, SRTCManager.Types.DATA, function() {
+		// 		rtc.createOffer(0, function(offer) {
+		// 			expect(offer).not.toBe(null);
+		// 			expect(offer).not.toBe(undefined);
+		// 			done();
+		// 		});
+		// 	});
+		// });
 	});
 });
 
