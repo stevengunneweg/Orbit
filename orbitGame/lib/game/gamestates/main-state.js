@@ -5,19 +5,22 @@ ig.module (
 	'impact.entity'
 )
 .defines(function() {
-	MainState = ig.Entity.extend({
-
-		init: function(x, y, settings) {
-
-		},
-		update: function() {
-			
-		},
-		draw: function() {
-
-		},
-		clear: function() {
-
-		}
-	});
+	MainState = ig.Entity.extend(BaseState.prototype);
 });
+
+function BaseState() {
+}
+BaseState.prototype = {
+	init: function(x, y, settings) {
+
+	},
+	update: function() {
+		
+	},
+	draw: function() {
+
+	},
+	clear: function() {
+
+	}
+}
