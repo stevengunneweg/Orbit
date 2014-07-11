@@ -20,8 +20,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jasmine');
 
   // Default task(s).
-  grunt.registerTast('default', []);
+  grunt.registerTask('default', []);
   grunt.registerTask('travis', ['jshint', 'jasmine']);
-
 };
 
