@@ -23,6 +23,8 @@ describe("Network", function() {
 			expect(Object.keys(this.netw.binds).length).toBe(0);
 		});
 
+		// !   RTC objects not supported with Travis CI   !
+
 		// it("should be able to create RTCPeerConnection object", function(done) {
 		// 	this.netw.srtc.createConnection(0, SRTCManager.Types.DATA, function() {
 		// 		done();
@@ -86,6 +88,8 @@ describe("Network", function() {
 			expect(rtc).not.toBe(null);
 			expect(rtc).not.toBe(undefined);
 		});
+
+		// !   RTC objects not supported with Travis CI   !
 
 		// it("should create connection object", function(done) {
 		// 	rtc.createConnection(0, SRTCManager.Types.DATA, function() {
