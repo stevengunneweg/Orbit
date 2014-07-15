@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Jasmine Spec Runner v2.0.0</title>
+
+	<link rel="shortcut icon" type="image/png" href="lib/jasmine-2.0.0/jasmine_favicon.png">
+	<link rel="stylesheet" type="text/css" href="lib/jasmine-2.0.0/jasmine.css">
+
+	<script>
+		//representation of the game
+		ig = function() {
+			return {
+				module: function() { return this; },
+				requires: function() { return this; },
+				defines: function() { return this; },
+				game: {
+					spawnEntity: function() {},
+					networker: {
+						unbindEvent: function() {},
+						deactivate: function() {}
+					},
+					socket_id: 0,
+					screen: {x: 0, y: 0}
+				}
+			}
+		}();
+	</script>
+	<script type="text/javascript" src="../orbitGame/socket.io.js"></script>
+	<script type="text/javascript" src="../orbitGame/vector2d.js"></script>
+	<script type="text/javascript" src="../orbitGame/srtc.js"></script>
+	<script type="text/javascript" src="../orbitGame/lib/game/entities/networker.js"></script>
+
+	<script type="text/javascript" src="../orbitGame/lib/game/gamestates/state-manager.js"></script>
+	<script type="text/javascript" src="../orbitGame/lib/game/gamestates/main-state.js"></script>
+	<script type="text/javascript" src="../orbitGame/lib/game/gamestates/menu-state.js"></script>
+	<script type="text/javascript" src="../orbitGame/lib/game/gamestates/game-state.js"></script>
+	<script type="text/javascript" src="../orbitGame/lib/game/gamestates/dead-state.js"></script>
+	<script type="text/javascript" src="../orbitGame/lib/game/gamestates/offline-state.js"></script>
+	<script type="text/javascript" src="../orbitGame/lib/game/gamestates/score-state.js"></script>
+
+	<script type="text/javascript" src="../orbitGame/lib/game/entities/space-object.js"></script>
+	<script type="text/javascript" src="../orbitGame/lib/game/entities/bounding-sphere.js"></script>
+	<script type="text/javascript" src="../orbitGame/lib/game/entities/planet.js"></script>
+	<script type="text/javascript" src="../orbitGame/lib/game/entities/asteroid.js"></script>
+
+	<script type="text/javascript" src="lib/jasmine-2.0.0/jasmine.js"></script>
+	<script type="text/javascript" src="lib/jasmine-2.0.0/jasmine-html.js"></script>
+	<script type="text/javascript" src="lib/jasmine-2.0.0/boot.js"></script>
+
+	<script type="text/javascript" src="spec/GameSpec.js"></script>
+</head>
+
+<body>
+	<canvas id="canvas" style="display: none;"></canvas>
+</body>
+</html>
