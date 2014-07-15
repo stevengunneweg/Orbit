@@ -159,6 +159,7 @@ GameState.prototype = {
 		} else if (planet.pos.y < -(universe_size / 2)) {
 			planet.pos.y += universe_size;
 		}
+		this.keepPlanetInBounds(planet);
 	},
 	applyGravityBetweenPlanets: function() {
 		for (var planet_id in this.planets) {
